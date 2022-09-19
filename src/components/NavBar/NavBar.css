@@ -1,0 +1,47 @@
+header{
+    padding-top: 20px;
+}
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.navbar__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar__row-menu{
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-item{
+    list-style: none;
+    padding: 10px 20px;
+    border-bottom:1px solid transparent ;
+}
+a{
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.menu-item:hover{
+    border-bottom:1px solid #F5BD41 ;
+}
+.menu-item-night{
+    background: transparent;
+    padding:  20px;
+}
+.menu-item-account{
+    background: transparent;
+    padding:  20px;
+}
+/* .active{
+   background: url(../assets/img/accountOrange.svg);
+   background-repeat: no-repeat;
+} */
