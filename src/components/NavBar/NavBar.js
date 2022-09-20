@@ -7,6 +7,13 @@ import './NavBar.css'
 
 const NavBar = () => {
     const [user, setUser] = useState(Account)
+    function changeImages(){
+        if(user == Account){
+            setUser(ActiveAccount)
+        }else{
+            setUser(Account)
+        }
+    }
   return (
     <header>    
         <div className='container'>
@@ -19,7 +26,7 @@ const NavBar = () => {
                         <li className='menu-item'><a>Stays</a></li>
                         <li className='menu-item'><a>Attractions</a></li>
                         <img className='menu-item-night' src={Night} alt='Night'></img>
-                        <img className={`menu-item-account`} alt='Account' src={user} onClick={() => setUser(ActiveAccount)} ></img>
+                        <img className={`menu-item-account`} alt='Account' src={user} onClick={() => changeImages()} ></img>
                     </ul>
                 </div>
             </div>
