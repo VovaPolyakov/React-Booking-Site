@@ -3,54 +3,46 @@ import Logo from '../assets/img/logo_vector@2x.svg'
 import Night from '../assets/img/Night.svg'
 import Account from '../assets/img/AccountCircle.svg'
 import ActiveAccount from '../assets/img/accountOrange.svg'
-import './NavBar.css'
+import SignWindow from './SignWindow'
+import { 
+    StyledHeader,
+    StyledContainer,
+    StyledNavRow,
+    StyledNavLogo,
+    StyledNavMenu,
+    StyledNavMenuItem,
+    StyledNavImg 
+} from './styled'
 
 const NavBar = () => {
     const [user, setUser] = useState(Account)
-    function changeImages(){
+    const [open , setOpen] = useState(false)
+    const changeImages = () => {
         if(user == Account){
             setUser(ActiveAccount)
+            setOpen(true)
         }else{
             setUser(Account)
-        }
-    }
-    const SignIn = () =>{
-        if(user == ActiveAccount){
-            return(
-                <div className='sign'>
-                    <div className='sign-row'>
-                        <div className='sign-title'>
-                            <h1>Sign in</h1>
-                        </div>
-                        <p className='sign-text'>Email address</p>
-                        <input className='sign-input'></input>
-                        <p className='sign-text'>Password</p>
-                        <input className='sign-input'></input>
-                        <button className='sign-button'>Sign in</button>
-                    </div>
-                </div>
-            )
+            setOpen(false)
         }
     }
     return (
-        <header>    
-            <div className='container'>
-                <div className='navbar__row'>
-                    <div className='navbar__row-logo'>
+        <StyledHeader>    
+            <StyledContainer>
+                <StyledNavRow>
+                    <StyledNavLogo>
                         <img src={Logo} alt='logo'></img>
-                    </div>
-                    <div className='navbar__row-menu'>
-                        <ul className='menu'>
-                            <li className='menu-item'><a>Stays</a></li>
-                            <li className='menu-item'><a>Attractions</a></li>
-                            <img className='menu-item-night' src={Night} alt='Night'></img>
-                            <img className={`menu-item-account`} alt='Account' src={user} onClick={() => changeImages()} ></img>
-                        </ul>
-                    </div>
-                </div>
-                <SignIn></SignIn>
-            </div>
-        </header>
+                    </StyledNavLogo>
+                    <StyledNavMenu>
+                        <StyledNavMenuItem><a>Stays</a></StyledNavMenuItem>
+                        <StyledNavMenuItem ><a>Attractions</a></StyledNavMenuItem>
+                        <StyledNavImg src={Night} alt='Night'></StyledNavImg>
+                        <StyledNavImg alt='Account' src={user} onClick={() => changeImages()} ></StyledNavImg>
+                    </StyledNavMenu>
+                </StyledNavRow>
+                {open ? <SignWindow open={open}/> : ''}
+            </StyledContainer>
+        </StyledHeader>
       )
 }
 
